@@ -1,0 +1,709 @@
+{
+  "items": [
+    {
+      "name": "500 gm Cake",
+      "price": "₹320 onwards",
+      "cat": "cakes",
+      "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 14
+    },
+    {
+      "name": "1 KG Cake",
+      "price": "₹620 onwards",
+      "cat": "cakes",
+      "img": "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Best Seller",
+      "rating": 4.8,
+      "reviews": 70
+    },
+    {
+      "name": "2 KG Cake",
+      "price": "Available on Order",
+      "cat": "cakes",
+      "img": "https://images.unsplash.com/photo-1562777717-dc6984f65a63?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.5,
+      "reviews": 196
+    },
+    {
+      "name": "3 KG+ Cake",
+      "price": "Custom Order",
+      "cat": "cakes",
+      "img": "https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 197
+    },
+    {
+      "name": "Red Velvet Pastry",
+      "price": "₹40",
+      "cat": "pastries",
+      "img": "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.9,
+      "reviews": 30
+    },
+    {
+      "name": "Pineapple Pastry",
+      "price": "₹35",
+      "cat": "pastries",
+      "img": "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 16
+    },
+    {
+      "name": "Black Forest Pastry",
+      "price": "₹40",
+      "cat": "pastries",
+      "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Most Ordered",
+      "rating": 4.3,
+      "reviews": 63
+    },
+    {
+      "name": "Chocolate Pastry",
+      "price": "₹40",
+      "cat": "pastries",
+      "img": "https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.5,
+      "reviews": 162
+    },
+    {
+      "name": "Butterscotch Pastry",
+      "price": "₹35",
+      "cat": "pastries",
+      "img": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Customer Favorite",
+      "rating": 4.3,
+      "reviews": 58
+    },
+    {
+      "name": "Vanilla Pastry",
+      "price": "₹35",
+      "cat": "pastries",
+      "img": "https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 187
+    },
+    {
+      "name": "Vegetable Pizza",
+      "price": "₹120",
+      "cat": "pizza",
+      "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 64
+    },
+    {
+      "name": "Vegetable Paneer Pizza",
+      "price": "₹140",
+      "cat": "pizza",
+      "img": "https://images.unsplash.com/photo-1594007654729-407eedc4be65?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Chef Special",
+      "rating": 4.6,
+      "reviews": 79
+    },
+    {
+      "name": "Pizza Slice",
+      "price": "₹30",
+      "cat": "pizza",
+      "img": "https://images.unsplash.com/photo-1548369937-47519962c11a?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.9,
+      "reviews": 9
+    },
+    {
+      "name": "Mini Pizza",
+      "price": "₹60",
+      "cat": "pizza",
+      "img": "https://images.unsplash.com/photo-1544982503-9f984c14501a?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 48
+    },
+    {
+      "name": "Cheese Burst Pizza",
+      "price": "₹160",
+      "cat": "pizza",
+      "img": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 95
+    },
+    {
+      "name": "Veg Sandwich",
+      "price": "₹30",
+      "cat": "sandwiches",
+      "img": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.5,
+      "reviews": 63
+    },
+    {
+      "name": "Veg Grilled Sandwich",
+      "price": "₹60",
+      "cat": "sandwiches",
+      "img": "https://images.unsplash.com/photo-1550507992-eb63ffee0847?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 5.0,
+      "reviews": 94
+    },
+    {
+      "name": "Cheese Grilled Sandwich",
+      "price": "₹80",
+      "cat": "sandwiches",
+      "img": "https://images.unsplash.com/photo-1528736235302-52922df5c122?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 105
+    },
+    {
+      "name": "Paneer Grilled Sandwich",
+      "price": "₹80",
+      "cat": "sandwiches",
+      "img": "https://images.unsplash.com/photo-1509722747041-616f39b57569?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 96
+    },
+    {
+      "name": "Cheese Corn Sandwich",
+      "price": "₹70",
+      "cat": "sandwiches",
+      "img": "https://images.unsplash.com/photo-1481070555726-e2fe8357725c?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 214
+    },
+    {
+      "name": "Aloo Patties",
+      "price": "₹20",
+      "cat": "snacks",
+      "img": "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.3,
+      "reviews": 125
+    },
+    {
+      "name": "Paneer Patties",
+      "price": "₹25",
+      "cat": "snacks",
+      "img": "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 104
+    },
+    {
+      "name": "Cream Roll",
+      "price": "₹20",
+      "cat": "snacks",
+      "img": "https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 83
+    },
+    {
+      "name": "Chocolate Cupcake",
+      "price": "₹35",
+      "cat": "cupcakes",
+      "img": "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.9,
+      "reviews": 166
+    },
+    {
+      "name": "Vanilla Cupcake",
+      "price": "₹30",
+      "cat": "cupcakes",
+      "img": "https://images.unsplash.com/photo-1587668178277-295251f900ce?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.9,
+      "reviews": 100
+    },
+    {
+      "name": "Red Velvet Cupcake",
+      "price": "₹40",
+      "cat": "cupcakes",
+      "img": "https://images.unsplash.com/photo-1599785209707-a456fc1337bb?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 188
+    },
+    {
+      "name": "Black Forest Cupcake",
+      "price": "₹40",
+      "cat": "cupcakes",
+      "img": "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.3,
+      "reviews": 177
+    },
+    {
+      "name": "Soft Drinks",
+      "price": "₹40",
+      "cat": "beverages",
+      "img": "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.5,
+      "reviews": 82
+    },
+    {
+      "name": "Cookies",
+      "price": "₹20 each",
+      "cat": "sweets",
+      "img": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 5.0,
+      "reviews": 67
+    },
+    {
+      "name": "Brownies",
+      "price": "₹50",
+      "cat": "sweets",
+      "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.9,
+      "reviews": 105
+    },
+    {
+      "name": "Muffins",
+      "price": "₹40",
+      "cat": "sweets",
+      "img": "https://images.unsplash.com/photo-1607958996333-41aef7caefaa?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.5,
+      "reviews": 170
+    },
+    {
+      "name": "Donuts",
+      "price": "₹40",
+      "cat": "sweets",
+      "img": "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.9,
+      "reviews": 49
+    },
+    {
+      "name": "Chocolate Donut",
+      "price": "₹45",
+      "cat": "sweets",
+      "img": "https://images.unsplash.com/photo-1533910534207-90f31029a78e?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.6,
+      "reviews": 61
+    },
+    {
+      "name": "Ice Cream",
+      "price": "₹50 onwards",
+      "cat": "sweets",
+      "img": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 187
+    },
+    {
+      "name": "Birthday Decoration Combo",
+      "price": "₹499 onwards",
+      "cat": "party",
+      "img": "https://images.unsplash.com/photo-1533294455009-a77b7557d2d1?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 5.0,
+      "reviews": 173
+    },
+    {
+      "name": "Gift Hampers",
+      "price": "₹399 onwards",
+      "cat": "party",
+      "img": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.3,
+      "reviews": 170
+    },
+    {
+      "name": "Candles",
+      "price": "₹30 onwards",
+      "cat": "party",
+      "img": "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 194
+    },
+    {
+      "name": "Cake Toppers",
+      "price": "₹40 onwards",
+      "cat": "party",
+      "img": "https://images.unsplash.com/photo-1558636508-e0db3814bd1d?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.5,
+      "reviews": 126
+    },
+    {
+      "name": "Birthday Caps",
+      "price": "₹20 onwards",
+      "cat": "party",
+      "img": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.6,
+      "reviews": 171
+    },
+    {
+      "name": "Greeting Cards",
+      "price": "₹25 onwards",
+      "cat": "party",
+      "img": "https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 64
+    },
+    {
+      "name": "Chocolate Boxes",
+      "price": "₹199 onwards",
+      "cat": "party",
+      "img": "https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 204
+    },
+    {
+      "name": "Custom Photo Cake",
+      "price": "₹600 onwards",
+      "cat": "photocakes",
+      "img": "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Mail us your photo",
+      "rating": 4.7,
+      "reviews": 18
+    },
+    {
+      "name": "Birthday Photo Cake",
+      "price": "₹600 onwards",
+      "cat": "photocakes",
+      "img": "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 74
+    },
+    {
+      "name": "Princess Theme Photo Cake",
+      "price": "₹650 onwards",
+      "cat": "photocakes",
+      "img": "https://images.unsplash.com/photo-1525257831700-183b9b8bf5c4?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 200
+    },
+    {
+      "name": "Superhero Photo Cake",
+      "price": "₹650 onwards",
+      "cat": "photocakes",
+      "img": "https://images.unsplash.com/photo-1562023692-9283c11284bd?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 201
+    },
+    {
+      "name": "Cartoon Photo Cake",
+      "price": "₹600 onwards",
+      "cat": "photocakes",
+      "img": "https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 34
+    },
+    {
+      "name": "Frozen Theme Photo Cake",
+      "price": "₹650 onwards",
+      "cat": "photocakes",
+      "img": "https://images.unsplash.com/photo-1557164158-11e97f2bb220?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 20
+    },
+    {
+      "name": "Mickey & Minnie Photo Cake",
+      "price": "₹650 onwards",
+      "cat": "photocakes",
+      "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.3,
+      "reviews": 67
+    },
+    {
+      "name": "Rose Gold Designer Cake",
+      "price": "₹1200 onwards",
+      "cat": "designercakes",
+      "img": "https://images.unsplash.com/photo-1525257831700-183b9b8bf5c4?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Premium",
+      "rating": 4.4,
+      "reviews": 166
+    },
+    {
+      "name": "Fondant Bow Cake",
+      "price": "₹1100 onwards",
+      "cat": "designercakes",
+      "img": "https://images.unsplash.com/photo-1562023692-9283c11284bd?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.3,
+      "reviews": 62
+    },
+    {
+      "name": "Butterfly Designer Cake",
+      "price": "₹950 onwards",
+      "cat": "designercakes",
+      "img": "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 191
+    },
+    {
+      "name": "Gold Drip Designer Cake",
+      "price": "₹1350 onwards",
+      "cat": "designercakes",
+      "img": "https://images.unsplash.com/photo-1562777717-dc6984f65a63?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Premium",
+      "rating": 4.6,
+      "reviews": 68
+    },
+    {
+      "name": "Floral Fondant Cake",
+      "price": "₹1250 onwards",
+      "cat": "designercakes",
+      "img": "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.6,
+      "reviews": 83
+    },
+    {
+      "name": "Sugar Craft Cake",
+      "price": "₹1200 onwards",
+      "cat": "designercakes",
+      "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 13
+    },
+    {
+      "name": "Unicorn Kids Cake",
+      "price": "₹1500 onwards",
+      "cat": "kidscakes",
+      "img": "https://images.unsplash.com/photo-1557164158-11e97f2bb220?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Kids Favourite",
+      "rating": 4.8,
+      "reviews": 52
+    },
+    {
+      "name": "Cartoon Bus Kids Cake",
+      "price": "₹1600 onwards",
+      "cat": "kidscakes",
+      "img": "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 99
+    },
+    {
+      "name": "Racing Car Kids Cake",
+      "price": "₹1400 onwards",
+      "cat": "kidscakes",
+      "img": "https://images.unsplash.com/photo-1562777717-dc6984f65a63?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.5,
+      "reviews": 67
+    },
+    {
+      "name": "Doll Kids Cake",
+      "price": "₹1600 onwards",
+      "cat": "kidscakes",
+      "img": "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.9,
+      "reviews": 98
+    },
+    {
+      "name": "Jungle Theme Kids Cake",
+      "price": "₹1500 onwards",
+      "cat": "kidscakes",
+      "img": "https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 109
+    },
+    {
+      "name": "Superhero Kids Cake",
+      "price": "₹1500 onwards",
+      "cat": "kidscakes",
+      "img": "https://images.unsplash.com/photo-1562023692-9283c11284bd?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 100
+    },
+    {
+      "name": "First Birthday Number Cake",
+      "price": "₹1300 onwards",
+      "cat": "kidscakes",
+      "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.7,
+      "reviews": 218
+    },
+    {
+      "name": "Heart Piñata Cake",
+      "price": "₹1200 onwards",
+      "cat": "pinatacakes",
+      "img": "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Surprise Inside",
+      "rating": 4.3,
+      "reviews": 129
+    },
+    {
+      "name": "Round Piñata Cake with Chocolates",
+      "price": "₹1100 onwards",
+      "cat": "pinatacakes",
+      "img": "https://images.unsplash.com/photo-1562023692-9283c11284bd?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.6,
+      "reviews": 108
+    },
+    {
+      "name": "Couple Piñata Anniversary Cake",
+      "price": "₹1400 onwards",
+      "cat": "pinatacakes",
+      "img": "https://images.unsplash.com/photo-1525257831700-183b9b8bf5c4?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.3,
+      "reviews": 87
+    },
+    {
+      "name": "Rose Piñata Cake",
+      "price": "₹1300 onwards",
+      "cat": "pinatacakes",
+      "img": "https://images.unsplash.com/photo-1562777717-dc6984f65a63?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 170
+    },
+    {
+      "name": "Butterfly Piñata Cake",
+      "price": "₹1200 onwards",
+      "cat": "pinatacakes",
+      "img": "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 104
+    },
+    {
+      "name": "Fresh Fruit Cake",
+      "price": "₹900 onwards",
+      "cat": "fruitcakes",
+      "img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Loaded with Fruits",
+      "rating": 4.6,
+      "reviews": 192
+    },
+    {
+      "name": "Chocolate Fresh Fruit Cake",
+      "price": "₹950 onwards",
+      "cat": "fruitcakes",
+      "img": "https://images.unsplash.com/photo-1562023692-9283c11284bd?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.3,
+      "reviews": 181
+    },
+    {
+      "name": "Fresh Orange Cake",
+      "price": "₹750 onwards",
+      "cat": "fruitcakes",
+      "img": "https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.4,
+      "reviews": 86
+    },
+    {
+      "name": "Mango Cake",
+      "price": "₹550 onwards",
+      "cat": "fruitcakes",
+      "img": "https://images.unsplash.com/photo-1562777717-dc6984f65a63?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.9,
+      "reviews": 71
+    },
+    {
+      "name": "Pineapple Fresh Fruit Cake",
+      "price": "₹850 onwards",
+      "cat": "fruitcakes",
+      "img": "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 109
+    },
+    {
+      "name": "Royal Fruit Cake",
+      "price": "₹1100 onwards",
+      "cat": "fruitcakes",
+      "img": "https://images.unsplash.com/photo-1525257831700-183b9b8bf5c4?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.5,
+      "reviews": 174
+    },
+    {
+      "name": "Two-Tier Anniversary Cake",
+      "price": "₹2200 onwards",
+      "cat": "annivcakes",
+      "img": "https://images.unsplash.com/photo-1562023692-9283c11284bd?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.8,
+      "reviews": 53
+    },
+    {
+      "name": "Rose Heart Anniversary Cake",
+      "price": "₹1500 onwards",
+      "cat": "annivcakes",
+      "img": "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.5,
+      "reviews": 65
+    },
+    {
+      "name": "Classic White Wedding Cake",
+      "price": "₹3200 onwards",
+      "cat": "annivcakes",
+      "img": "https://images.unsplash.com/photo-1525257831700-183b9b8bf5c4?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Made to Order",
+      "rating": 4.7,
+      "reviews": 191
+    },
+    {
+      "name": "Elegant Three-Tier Wedding Cake",
+      "price": "₹4500 onwards",
+      "cat": "annivcakes",
+      "img": "https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "badge": "Made to Order",
+      "rating": 4.9,
+      "reviews": 177
+    },
+    {
+      "name": "Golden Anniversary Cake",
+      "price": "₹1800 onwards",
+      "cat": "annivcakes",
+      "img": "https://images.unsplash.com/photo-1562777717-dc6984f65a63?q=80&w=600&auto=format&fit=crop",
+      "available": true,
+      "rating": 4.3,
+      "reviews": 174
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+backend:
+  name: git-gateway
+  branch: main
+  # NOTE: Netlify Identity + Git Gateway (used above) has been officially
+  # deprecated by Netlify — it still works if you enable it today, but
+  # Netlify recommends NOT setting up new sites with it. The recommended
+  # free replacement for a simple one-editor site like this is DecapBridge
+  # (https://decapbridge.com). If you use DecapBridge instead, replace the
+  # "backend:" block above with the snippet DecapBridge gives you after you
+  # connect your GitHub repo — it looks like this:
+  #
+  # backend:
+  #   name: git-gateway
+  #   repo: your-username/your-repo-name
+  #   branch: main
+  #   identity_url: https://auth.decapbridge.com/sites/your-site-id
+  #   gateway_url: https://gateway.decapbridge.com
+  #
+  # See the README's "Full deployment guide" section for step-by-step help.
+
+# Where uploaded images go if the owner adds new photos from the editor.
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "menu"
+    label: "🍰 Menu"
+    files:
+      - file: "data/menu.json"
+        label: "Menu Items"
+        name: "menu"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.price}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+              - label: "Category"
+                name: "cat"
+                widget: "select"
+                options:
+                  - { label: "Cakes", value: "cakes" }
+                  - { label: "Pastries", value: "pastries" }
+                  - { label: "Pizza", value: "pizza" }
+                  - { label: "Sandwiches", value: "sandwiches" }
+                  - { label: "Bakery Snacks", value: "snacks" }
+                  - { label: "Cupcakes", value: "cupcakes" }
+                  - { label: "Beverages", value: "beverages" }
+                  - { label: "Bakes & Sweets", value: "sweets" }
+                  - { label: "Party Pack", value: "party" }
+                  - { label: "Photo Cakes", value: "photocakes" }
+                  - { label: "Designer Cakes", value: "designercakes" }
+                  - { label: "Kids Theme Cakes", value: "kidscakes" }
+                  - { label: "Piñata Cakes", value: "pinatacakes" }
+                  - { label: "Fresh Fruit Cakes", value: "fruitcakes" }
+                  - { label: "Anniversary & Wedding Cakes", value: "annivcakes" }
+              - { label: "Photo URL", name: "img", widget: "string", hint: "Paste an image link, or use Media Library to upload a photo" }
+              - { label: "Badge (optional, e.g. 'Best Seller')", name: "badge", widget: "string", required: false }
+              - { label: "Available Today?", name: "available", widget: "boolean", default: true }
+              - { label: "Star Rating (1-5, optional)", name: "rating", widget: "number", required: false, value_type: "float", min: 1, max: 5 }
+              - { label: "Number of Reviews (optional)", name: "reviews", widget: "number", required: false, value_type: "int" }
+
+  - name: "announcement"
+    label: "📢 Today's Banner"
+    files:
+      - file: "data/announcement.json"
+        label: "Announcement"
+        name: "announcement"
+        fields:
+          - { label: "Show this banner on the site?", name: "show", widget: "boolean", default: false }
+          - { label: "Message", name: "message", widget: "string", required: false, hint: "e.g. Fresh Black Forest Cake today! Order on WhatsApp." }
