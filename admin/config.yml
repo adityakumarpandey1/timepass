@@ -76,4 +76,8 @@ collections:
         name: "announcement"
         fields:
           - { label: "Show this banner on the site?", name: "show", widget: "boolean", default: false }
+<<<<<<< HEAD
           - { label: "Message", name: "message", widget: "string", required: false }
+=======
+          - { label: "Message", name: "message", widget: "string", required: false }
+>>>>>>> 6450af88c281a21c89991f106ac57c03ee497f94
