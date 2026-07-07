@@ -254,21 +254,148 @@ cartOverlay.addEventListener("click", closeCart);
 });
 renderCart();
 
-/* ---------------- PAY VIA UPI & PLACE ORDER ----------------
-   No payment gateway/backend is wired up for this static site, so this
-   uses a standard "upi://pay" deep link — the same mechanism UPI QR
-   codes use — to open the customer's own UPI app (GPay/PhonePe/Paytm/BHIM)
-   with the amount pre-filled. The order is also logged to WhatsApp +
-   saved to "My Orders" so both the shop and the customer have a record. */
+/* ---------------- QR-BASED UPI PAYMENT POPUP ----------------
+   No payment gateway/backend is wired up for this static site. Instead of
+   the old "upi://pay" deep link (which failed to open on many phones),
+   this shows a live-generated QR code — exactly how any merchant UPI QR
+   works — so the customer scans it with whatever UPI app they already
+   have (GPay/PhonePe/Paytm/BHIM). Once they tap "I've Paid", the order is
+   saved to "My Orders" and the full order detail is sent to WhatsApp so
+   the shop can confirm it. Money always goes straight to the shop's own
+   UPI ID below — no third party, no commission. */
 const SHOP_UPI_ID = "8899264105-1@okbizaxis";
 const SHOP_UPI_NAME = "Cake Town Bakery";
+const QR_VALID_SECONDS = 15 * 60;
+
+let pendingOrder = null;
+let qrCodeInstance = null;
+let qrCountdownTimer = null;
+let attachedScreenshotName = "";
 
 /* Shared: send the WhatsApp confirmation message for a placed order. */
 function sendOrderWhatsApp(order, paymentNote){
   const lines = order.items.map(c => `• ${c.name} x${c.qty} (${c.price})`).join("\n");
-  const msg = `Hi Cake Town Bakery! I've placed order ${order.id}${paymentNote ? " " + paymentNote : ""}.\n\n${lines}\n\nName: ${order.customer.name}\nPhone: ${order.customer.phone}\nAddress: ${order.customer.address}\n\nPlease confirm my order. Thank you!`;
+  const msg = `Hi Cake Town Bakery,\n\nOrder ID:\n${order.id}\n\nCustomer Name:\n${order.customer.name}\n\nPhone:\n${order.customer.phone}\n\nAddress:\n${order.customer.address}\n\nItems:\n${lines}\n\nAmount:\n₹${order.total}${paymentNote ? "\n\n" + paymentNote : ""}\n\nPlease confirm my order.`;
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
 }
+
+function buildUpiString(orderId, amount){
+  return `upi://pay?pa=${encodeURIComponent(SHOP_UPI_ID)}&pn=${encodeURIComponent(SHOP_UPI_NAME)}&am=${amount}&cu=INR&tn=${encodeURIComponent("Order " + orderId)}`;
+}
+
+function renderQrCode(orderId, amount){
+  const box = document.getElementById("qrCodeBox");
+  box.innerHTML = "";
+  qrCodeInstance = new QRCode(box, {
+    text: buildUpiString(orderId, amount),
+    width: 180,
+    height: 180,
+    colorDark: "#3e2418",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.M,
+  });
+}
+
+function startQrCountdown(){
+  clearInterval(qrCountdownTimer);
+  let secondsLeft = QR_VALID_SECONDS;
+  const timerEl = document.getElementById("qrTimer");
+  const regenBtn = document.getElementById("qrRegenBtn");
+  timerEl.classList.remove("expired");
+  regenBtn.hidden = true;
+  document.getElementById("qrCodeBox").style.opacity = "1";
+
+  const tick = () => {
+    const m = String(Math.floor(secondsLeft / 60)).padStart(2, "0");
+    const s = String(secondsLeft % 60).padStart(2, "0");
+    timerEl.textContent = `Valid for ${m}:${s}`;
+    if (secondsLeft <= 0) {
+      clearInterval(qrCountdownTimer);
+      timerEl.textContent = "QR code expired";
+      timerEl.classList.add("expired");
+      regenBtn.hidden = false;
+      document.getElementById("qrCodeBox").style.opacity = "0.35";
+    }
+    secondsLeft--;
+  };
+  tick();
+  qrCountdownTimer = setInterval(tick, 1000);
+}
+
+function openPaymentModal(order){
+  pendingOrder = order;
+  attachedScreenshotName = "";
+  document.getElementById("payOrderId").textContent = order.id;
+  document.getElementById("payAmount").textContent = `₹${order.total.toLocaleString("en-IN")}`;
+  document.getElementById("screenshotPreview").hidden = true;
+  document.getElementById("paymentScreenshot").value = "";
+
+  renderQrCode(order.id, order.total);
+  startQrCountdown();
+
+  document.getElementById("paymentOverlay").hidden = false;
+  document.getElementById("paymentModal").hidden = false;
+}
+
+function closePaymentModal(){
+  document.getElementById("paymentOverlay").hidden = true;
+  document.getElementById("paymentModal").hidden = true;
+  clearInterval(qrCountdownTimer);
+}
+
+document.getElementById("paymentOverlay").addEventListener("click", closePaymentModal);
+document.getElementById("paymentClose").addEventListener("click", closePaymentModal);
+document.getElementById("paymentCancelBtn").addEventListener("click", closePaymentModal);
+
+document.getElementById("qrRegenBtn").addEventListener("click", () => {
+  if (!pendingOrder) return;
+  renderQrCode(pendingOrder.id, pendingOrder.total);
+  startQrCountdown();
+});
+
+document.getElementById("copyUpiBtn").addEventListener("click", () => {
+  navigator.clipboard.writeText(SHOP_UPI_ID).then(() => {
+    const btn = document.getElementById("copyUpiBtn");
+    btn.classList.remove("copied");
+    void btn.offsetWidth; // restart animation
+    btn.classList.add("copied");
+  }).catch(() => {
+    alert(`UPI ID: ${SHOP_UPI_ID}`);
+  });
+});
+
+document.getElementById("paymentScreenshot").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  const preview = document.getElementById("screenshotPreview");
+  if (!file) { preview.hidden = true; attachedScreenshotName = ""; return; }
+  attachedScreenshotName = file.name;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    document.getElementById("screenshotPreviewImg").src = ev.target.result;
+    document.getElementById("screenshotFileName").textContent = file.name;
+    preview.hidden = false;
+  };
+  reader.readAsDataURL(file); // preview only — never uploaded anywhere
+});
+
+document.getElementById("screenshotRemove").addEventListener("click", () => {
+  document.getElementById("paymentScreenshot").value = "";
+  document.getElementById("screenshotPreview").hidden = true;
+  attachedScreenshotName = "";
+});
+
+document.getElementById("paidBtn").addEventListener("click", () => {
+  if (!pendingOrder) return;
+  const order = pendingOrder;
+  saveOrder(order);
+  const note = `Payment Completed.${attachedScreenshotName ? `\nScreenshot: ${attachedScreenshotName}` : ""}`;
+  sendOrderWhatsApp(order, note);
+  cart = [];
+  renderCart();
+  closeCart();
+  closePaymentModal();
+  alert(`Order ${order.id} placed! We've opened WhatsApp so we can confirm your order.`);
+});
 
 document.getElementById("cartPayUpi").addEventListener("click", () => {
   if (cart.length === 0) {
@@ -286,7 +413,7 @@ document.getElementById("cartPayUpi").addEventListener("click", () => {
   }
 
   const total = cartTotal();
-  const orderId = "CTB" + Date.now().toString().slice(-8);
+  const orderId = "CTB" + Date.now();
   const hasCustomItems = cart.some(c => firstPriceNumber(c.price) === null);
 
   const order = {
@@ -299,30 +426,19 @@ document.getElementById("cartPayUpi").addEventListener("click", () => {
     status: "Placed — awaiting confirmation",
   };
 
-  const finishOrder = (paymentNote) => {
-    saveOrder(order);
-    sendOrderWhatsApp(order, paymentNote);
-    cart = [];
-    renderCart();
-    closeCart();
-  };
-
   // Nothing to actually charge (all items are "on order"/custom-priced) —
   // just log the order and hand off to WhatsApp for a manual quote.
   if (total <= 0) {
-    finishOrder("");
+    saveOrder(order);
+    sendOrderWhatsApp(order, "");
+    cart = [];
+    renderCart();
+    closeCart();
     alert(`Order ${orderId} placed! We've opened WhatsApp so we can confirm pricing and your order.`);
     return;
   }
 
-  // Open the customer's UPI app (GPay/PhonePe/Paytm/BHIM) with the amount
-  // pre-filled, then hand off to WhatsApp so the shop can confirm the order.
-  const upiLink = `upi://pay?pa=${encodeURIComponent(SHOP_UPI_ID)}&pn=${encodeURIComponent(SHOP_UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent("Order " + orderId)}`;
-  window.location.href = upiLink;
-  setTimeout(() => {
-    finishOrder(`and started a UPI payment of ₹${total}`);
-    alert(`Order ${orderId} placed! Complete the payment in your UPI app, then we've opened WhatsApp so we can confirm your order.`);
-  }, 800);
+  openPaymentModal(order);
 });
 
 /* ---------------- ACCOUNTS (Sign Up / Sign In) ----------------

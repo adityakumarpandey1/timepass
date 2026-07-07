@@ -1,24 +1,30 @@
 backend:
   name: git-gateway
+  repo: adityakumarpandey1/timepass
   branch: main
-  # NOTE: Netlify Identity + Git Gateway (used above) has been officially
-  # deprecated by Netlify — it still works if you enable it today, but
-  # Netlify recommends NOT setting up new sites with it. The recommended
-  # free replacement for a simple one-editor site like this is DecapBridge
-  # (https://decapbridge.com). If you use DecapBridge instead, replace the
-  # "backend:" block above with the snippet DecapBridge gives you after you
-  # connect your GitHub repo — it looks like this:
-  #
-  # backend:
-  #   name: git-gateway
-  #   repo: your-username/your-repo-name
-  #   branch: main
-  #   identity_url: https://auth.decapbridge.com/sites/your-site-id
-  #   gateway_url: https://gateway.decapbridge.com
-  #
-  # See the README's "Full deployment guide" section for step-by-step help.
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/3a753d9d-21a9-4502-9838-2808fe2171d6/pkce
+  auth_token_endpoint: /sites/3a753d9d-21a9-4502-9838-2808fe2171d6/token
+  gateway_url: https://gateway.decapbridge.com
 
-# Where uploaded images go if the owner adds new photos from the editor.
+  commit_messages:
+    create: Create {{collection}} "{{slug}}" via DecapBridge
+    update: Update {{collection}} "{{slug}}" via DecapBridge
+    delete: Delete {{collection}} "{{slug}}" via DecapBridge
+    uploadMedia: Upload "{{path}}" via DecapBridge
+    deleteMedia: Delete "{{path}}" via DecapBridge
+
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+site_url: https://caketownbakery.in
+
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -56,11 +62,11 @@ collections:
                   - { label: "Piñata Cakes", value: "pinatacakes" }
                   - { label: "Fresh Fruit Cakes", value: "fruitcakes" }
                   - { label: "Anniversary & Wedding Cakes", value: "annivcakes" }
-              - { label: "Photo URL", name: "img", widget: "string", hint: "Paste an image link, or use Media Library to upload a photo" }
-              - { label: "Badge (optional, e.g. 'Best Seller')", name: "badge", widget: "string", required: false }
+              - { label: "Photo URL", name: "img", widget: "string" }
+              - { label: "Badge", name: "badge", widget: "string", required: false }
               - { label: "Available Today?", name: "available", widget: "boolean", default: true }
-              - { label: "Star Rating (1-5, optional)", name: "rating", widget: "number", required: false, value_type: "float", min: 1, max: 5 }
-              - { label: "Number of Reviews (optional)", name: "reviews", widget: "number", required: false, value_type: "int" }
+              - { label: "Star Rating", name: "rating", widget: "number", required: false, value_type: "float", min: 1, max: 5 }
+              - { label: "Number of Reviews", name: "reviews", widget: "number", required: false, value_type: "int" }
 
   - name: "announcement"
     label: "📢 Today's Banner"
@@ -70,4 +76,4 @@ collections:
         name: "announcement"
         fields:
           - { label: "Show this banner on the site?", name: "show", widget: "boolean", default: false }
-          - { label: "Message", name: "message", widget: "string", required: false, hint: "e.g. Fresh Black Forest Cake today! Order on WhatsApp." }
+          - { label: "Message", name: "message", widget: "string", required: false }

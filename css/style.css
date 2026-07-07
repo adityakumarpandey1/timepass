@@ -156,10 +156,10 @@ textarea:focus-visible,
   display:flex; align-items:center; justify-content:space-between; padding: 10px 28px;
   gap: 20px; flex-wrap: wrap;
 }
-.logo{ display:flex; align-items:center; gap:14px; font-family: var(--font-display); font-size:2.1rem; font-weight:700; color: var(--text); flex-shrink:0; min-width:0; }
+.logo{ display:flex; align-items:center; gap:14px; font-family: var(--font-display); font-size:1.65rem; font-weight:700; color: var(--text); flex-shrink:0; min-width:0; }
 .logo em{ font-style: italic; color: var(--gold-text); }
 .logo-text{ white-space: nowrap; overflow:hidden; text-overflow:ellipsis; }
-.logo-icon-img{ height: 70px; width: 70px; object-fit: contain; flex-shrink: 0; }
+.logo-icon-img{ height: 56px; width: 56px; object-fit: contain; flex-shrink: 0; }
 /* Column 2: holds the nav links + all action buttons. Wraps onto its own line
    instead of overflowing off the edge of the screen if space gets tight. */
 .nav-right{
@@ -566,6 +566,88 @@ section + .scallop-divider, .scallop-divider:not(.hero .scallop-divider){ positi
 .order-card-items li span{ color: var(--text-soft); }
 .order-card-foot{ display:flex; align-items:center; justify-content:space-between; font-weight:700; font-size:0.85rem; }
 .order-status{ color: var(--gold-text); font-size:0.78rem; font-weight:700; }
+
+/* ==========================================================================
+   Payment popup (QR-based UPI payment)
+   ========================================================================== */
+.payment-modal{
+  position:fixed; top:50%; left:50%; transform: translate(-50%,-50%); width: min(440px, 92vw);
+  max-height: 90vh; overflow-y:auto; z-index: 1002; padding: 28px 26px;
+  background: var(--surface-solid);
+  background: linear-gradient(160deg, rgba(255,255,255,0.55), rgba(255,255,255,0.28));
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: var(--radius-lg, 22px);
+  box-shadow: 0 24px 70px rgba(62,36,24,0.28);
+  animation: paymentPopIn 0.28s ease;
+}
+[data-theme="dark"] .payment-modal{
+  background: linear-gradient(160deg, rgba(46,28,20,0.7), rgba(30,18,13,0.55));
+  border-color: rgba(255,255,255,0.08);
+}
+@keyframes paymentPopIn{
+  from{ opacity:0; transform: translate(-50%,-46%) scale(0.96); }
+  to{ opacity:1; transform: translate(-50%,-50%) scale(1); }
+}
+.payment-modal-head{ display:flex; align-items:center; gap:14px; margin: 6px 0 14px; }
+.payment-modal-logo{ width:52px; height:52px; object-fit:contain; border-radius:14px; background:#fff; padding:4px; box-shadow: var(--shadow-soft); }
+.payment-modal-head h3{ margin:0 0 2px; font-size:1.15rem; }
+.payment-modal-order{ margin:0; font-size:0.82rem; color: var(--text-soft); }
+.payment-modal-order strong{ color: var(--gold-text); }
+.payment-modal-amount{ text-align:center; font-size:1rem; margin: 4px 0 16px; color: var(--text-soft); }
+.payment-modal-amount strong{ font-size:1.5rem; color: var(--text); }
+
+.qr-wrap{ display:flex; flex-direction:column; align-items:center; gap:8px; margin-bottom:16px; }
+.qr-box{
+  width:200px; height:200px; display:flex; align-items:center; justify-content:center;
+  background:#fff; border-radius:16px; padding:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.qr-box img, .qr-box canvas{ width:100% !important; height:100% !important; }
+.qr-timer{ font-size:0.82rem; font-weight:700; color: var(--text-soft); margin:0; }
+.qr-timer.expired{ color:#c0392b; }
+
+.upi-copy-row{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  background: rgba(255,255,255,0.4); border:1px solid var(--border); border-radius:12px;
+  padding: 10px 14px; margin-bottom:14px; font-size:0.88rem;
+}
+[data-theme="dark"] .upi-copy-row{ background: rgba(255,255,255,0.05); }
+.upi-copy-row strong{ word-break: break-all; }
+#copyUpiBtn{ position:relative; flex-shrink:0; font-size:0.8rem; padding:8px 12px; }
+#copyUpiBtn.copied::after{
+  content:"Copied!"; position:absolute; top:-30px; right:0; background: var(--gold-text); color:#fff;
+  font-size:0.72rem; font-weight:700; padding:4px 9px; border-radius:8px; white-space:nowrap;
+  animation: copiedFade 1.4s ease forwards;
+}
+@keyframes copiedFade{
+  0%{ opacity:0; transform: translateY(4px); }
+  15%{ opacity:1; transform: translateY(0); }
+  80%{ opacity:1; }
+  100%{ opacity:0; transform: translateY(-4px); }
+}
+
+.pay-app-badges{ display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+.pay-app-badges span{
+  font-size:0.72rem; font-weight:700; padding:5px 11px; border-radius:999px;
+  background: var(--bg); border:1px solid var(--border); color: var(--text-soft);
+}
+
+.payment-modal-note{ text-align:center; font-size:0.78rem; color: var(--text-soft); margin-bottom:14px; line-height:1.5; }
+
+.payment-instructions{ font-size:0.82rem; color: var(--text-soft); padding-left:20px; margin: 0 0 16px; line-height:1.7; }
+
+.screenshot-upload{ margin-bottom:14px; }
+.screenshot-preview{
+  display:flex; align-items:center; gap:10px; margin-top:10px; padding:8px 10px;
+  border:1px solid var(--border); border-radius:12px; font-size:0.8rem; color: var(--text-soft);
+}
+.screenshot-preview img{ width:42px; height:42px; object-fit:cover; border-radius:8px; }
+.screenshot-preview span{ flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.screenshot-preview button{ flex-shrink:0; width:26px; height:26px; border-radius:999px; background: var(--bg); border:1px solid var(--border); }
+
+#paymentModal .btn{ margin-bottom:10px; }
+#paymentModal .btn:last-child{ margin-bottom:0; }
 
 /* ==========================================================================
    Gallery

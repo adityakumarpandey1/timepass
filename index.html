@@ -188,13 +188,13 @@
       <span class="ribbon">🎉 Save 5%</span>
       <div class="offer-emoji">🎉</div>
       <h3>5% Discount</h3>
-      <p>On Pre-Booking your cake order before 1 day</p>
+      <p>On Pre-Booking your cake order</p>
       <p class="offer-sub">Limited time — lock your slot today</p>
     </div>
     <div class="offer-card offer-card-ribbon">
       <span class="ribbon">🎁 Free</span>
       <div class="offer-emoji">🥟</div>
-      <h3>2 Aloo Patties Free</h3>
+      <h3>2 Aloo Pastries Free</h3>
       <p>On purchase above ₹499</p>
       <p class="offer-sub">Automatically added to your order</p>
     </div>
@@ -623,10 +623,69 @@
     </div>
     <p class="cart-note">Prices shown are starting prices — final amount is confirmed before delivery. Custom / "on order" items are priced on confirmation.</p>
     <p class="cart-note cart-note-warning">⚠️ Orders cannot be cancelled or refunded once placed — cakes and bakery items are freshly prepared for you and can't be reused or resold. Please double-check your order before confirming.</p>
-    <button class="btn btn-primary full" id="cartPayUpi">💳 Pay via UPI &amp; Place Order</button>
+    <button class="btn btn-primary full" id="cartPayUpi">💳 Proceed to Payment</button>
     <a href="#" target="_blank" rel="noopener" class="btn btn-whatsapp full" id="cartCheckout">💬 Checkout on WhatsApp</a>
   </div>
 </aside>
+
+<!-- ============ PAYMENT POPUP (QR-based UPI payment) ============
+     Replaces the old "upi://pay" deep-link flow, which failed to open on
+     many devices. This shows a live-generated QR code instead — the same
+     way any merchant UPI QR works — so the customer scans it with
+     whichever UPI app they already have (GPay/PhonePe/Paytm/BHIM), pays,
+     then taps "I've Paid" to send the order details to WhatsApp for
+     confirmation. No payment gateway, no backend, no commission — money
+     goes straight to the shop's own UPI ID. -->
+<div class="modal-overlay" id="paymentOverlay" hidden></div>
+<div class="payment-modal" id="paymentModal" role="dialog" aria-modal="true" aria-label="Complete your payment" hidden>
+  <button class="modal-close" id="paymentClose" aria-label="Close">✕</button>
+
+  <div class="payment-modal-head">
+    <img src="assets/cake-town-logo.png" alt="Cake Town Bakery" class="payment-modal-logo">
+    <div>
+      <h3>Complete Your Payment</h3>
+      <p class="payment-modal-order">Order ID: <strong id="payOrderId">—</strong></p>
+    </div>
+  </div>
+
+  <p class="payment-modal-amount">Amount to Pay: <strong id="payAmount">₹0</strong></p>
+
+  <div class="qr-wrap">
+    <div id="qrCodeBox" class="qr-box"></div>
+    <p class="qr-timer" id="qrTimer">Valid for 15:00</p>
+    <button class="btn btn-outline" id="qrRegenBtn" hidden>🔄 Generate New QR</button>
+  </div>
+
+  <div class="upi-copy-row">
+    <span>UPI ID: <strong id="payUpiId">8899264105-1@okbizaxis</strong></span>
+    <button class="btn btn-ghost" id="copyUpiBtn" type="button">📋 Copy</button>
+  </div>
+
+  <div class="pay-app-badges">
+    <span>UPI</span><span>BHIM</span><span>GPay</span><span>PhonePe</span><span>Paytm</span>
+  </div>
+
+  <p class="payment-modal-note">🔒 Money goes directly to Cake Town Bakery's UPI account. No third party, no gateway, no commission.</p>
+
+  <ol class="payment-instructions">
+    <li>Open any UPI app and scan the QR above (or paste the UPI ID).</li>
+    <li>Pay the exact amount shown.</li>
+    <li>Once paid, tap <strong>"I've Paid"</strong> below — we'll confirm your order on WhatsApp.</li>
+  </ol>
+
+  <div class="screenshot-upload">
+    <label for="paymentScreenshot" class="btn btn-outline full">📎 Attach Payment Screenshot (optional)</label>
+    <input type="file" id="paymentScreenshot" accept="image/*" hidden>
+    <div class="screenshot-preview" id="screenshotPreview" hidden>
+      <img id="screenshotPreviewImg" alt="Payment screenshot preview">
+      <span id="screenshotFileName"></span>
+      <button type="button" id="screenshotRemove" aria-label="Remove screenshot">✕</button>
+    </div>
+  </div>
+
+  <button class="btn btn-primary full" id="paidBtn">✅ I've Paid</button>
+  <button class="btn btn-outline full" id="paymentCancelBtn">Cancel</button>
+</div>
 
 <!-- ============ AUTH MODAL ============ -->
 <div class="modal-overlay" id="authOverlay" hidden></div>
@@ -671,6 +730,9 @@
   <img src="" alt="" id="lightboxImg">
 </div>
 
+<!-- Free, dependency-free QR code generator (MIT licensed) — used to render
+     a live-generated UPI payment QR in the checkout popup below. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="js/script.js"></script>
   <!-- Netlify Identity: lets the site handle the login links sent in
        invite/confirmation emails for the /admin menu editor. -->
